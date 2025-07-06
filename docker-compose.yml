@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    # Constrói a imagem a partir do Dockerfile no diretório atual
+    build: .
+    container_name: gestao-escolar-api-dev
+    # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
+    ports:
+      - "8000:8000"
+    # Monta o diretório do código-fonte local para dentro do contêiner
+    # Isso permite o live-reloading e persiste o banco de dados SQLite no seu computador
+    volumes:
+      - ./imersao-devops-main:/app
+    # O comando para iniciar a aplicação já está definido no Dockerfile com --reload,
+    # o que é perfeito para o desenvolvimento.
